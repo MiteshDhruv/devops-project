@@ -15,5 +15,16 @@ pipeline {
                 }
             }
         }
+
+        stage('push image to dockerHub'){
+            steps{
+              script{
+               withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhub-pwd')]) {
+                    sh 'docker login -u miteshdhruv9@gmail.com -p ${dockerhub-pwd}'
+                    sh 'docker push jar-application '
+                }
+              }
+            }
+        }
     }
 }
