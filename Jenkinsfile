@@ -8,5 +8,12 @@ pipeline {
             }
         }
 
+        stage('Build a docker image from a Dockerfile'){
+            steps{
+                script{
+                    sh 'docker build -t jar-application .'
+                }
+            }
+        }
     }
 }
