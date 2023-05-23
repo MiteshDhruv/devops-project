@@ -21,6 +21,7 @@ pipeline {
               script{
                withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhub-pwd')]) {
                     sh 'docker login -u miteshdhruv -p Mitesh@123'
+                    sh 'docker tag jar-application miteshdhruv/jar-application'
                     sh 'docker push miteshdhruv/jar-application '
                 }
               }
